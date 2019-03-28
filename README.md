@@ -68,7 +68,7 @@ const initStates = {
    rootReducer: initialState
 }
 const configureStore = () => {
-   return createStore(rootReducer, initilizeStates, applyMiddleware(thunk));
+   return createStore(rootReducer, initStates, applyMiddleware(thunk));
 }
 export default configureStore;
 ```
