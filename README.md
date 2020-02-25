@@ -97,7 +97,8 @@ export default class App extends React.Component {
 1. $ npm install react-navigation --save
 2. Create file src/navigation:
 ```javascript
-import { createStackNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation';
+import { createAppContainer, createDrawerNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from './components/HomeScreen';
 import DetailsScreen from './components/DetailsScreen';
 import AboutScreen from './components/AboutScreen';
