@@ -3,29 +3,32 @@ import { connect } from 'react-redux';
 import * as action from '../actions/Action';
 import { StyleSheet, View, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import {KeyboardAvoidingView} from 'react-native';
 
 
  class DetailsScreen extends Component {
 
     static navigationOptions = ({navigation}) => ({
         title: 'Details', 
-        headerLeft: <Ionicons name={'md-arrow-back'} size={30}
+        headerLeft: () => <Ionicons name={'md-arrow-back'} size={30}
                         onPress={ () => { navigation.goBack() }} />,
     });
 
     render(){
         return(
-            <View style={styles.container}>
-                <TextInput style={styles.input}
-                    onChangeText={(text)=>{this.props.updateKey('name', text)}}/>
+            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+                <View style={styles.container}>
+                    <TextInput style={styles.input}
+                        onChangeText={(text)=>{this.props.updateKey('name', text)}}/>
 
-                <TextInput style={styles.input}
-                    editable={false}
-                    multiline
-                    numberOfLines={4}
-                    value={'name: ' + this.props.name}
-                    />
-            </View>
+                    <TextInput style={styles.input}
+                        editable={false}
+                        multiline
+                        numberOfLines={4}
+                        value={'name: ' + this.props.name}
+                        />
+                </View>
+            </KeyboardAvoidingView>
         );
     }
 }
